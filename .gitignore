@@ -1,0 +1,27 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# User-generated manifesto files (sample outputs are in docs/)
+my_oss_manifesto.txt
+package_list_*.txt
+log_analysis_*.txt
+
+# Compiled files
+*.pyc
+__pycache__/
+
+# Environment files
+.env
+.env.local

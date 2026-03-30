@@ -1,0 +1,109 @@
+[H[2J[3J
+*********************************************
+*         LOG FILE ANALYZER                *
+*         Firefox OSS Audit Project        *
+*********************************************
+
+This tool analyzes system logs to identify errors,
+warnings, and security-related events.
+
+Note: Some logs require root/sudo access
+
+========================================
+  System Log Analysis
+========================================
+
+Analyzing: /var/log/syslog
+
+--- Statistics for syslog ---
+
+Total Lines          : 1042
+Errors               : 9
+Warnings             : 23
+Info                 : 26
+Critical/Fatal       : 3
+Failed Events        : 20
+
+========================================
+  Recent Errors (Last 10)
+========================================
+>>> 2026-03-21T12:17:31.137932+00:00 DEVANSH systemd[1]: apport-autoreport.path - Process error reports when automatic reporting is enabled (file watch) was skipped because of an unmet condition check (ConditionPathExists=/var/lib/apport/autoreport).
+>>> 2026-03-21T12:17:31.137949+00:00 DEVANSH systemd[1]: apport-autoreport.timer - Process error reports when automatic reporting is enabled (timer based) was skipped because of an unmet condition check (ConditionPathExists=/var/lib/apport/autoreport).
+>>> 2026-03-21T12:17:31.138365+00:00 DEVANSH kernel: RAS: Correctable Errors collector initialized.
+>>> 2026-03-21T12:17:31.138685+00:00 DEVANSH kernel: WSL (1 - init(docker-desktop)) ERROR: ConfigApplyWindowsLibPath:2092: open /etc/ld.so.conf.d/ld.wsl.conf failed 2
+>>> 2026-03-21T12:17:31.138744+00:00 DEVANSH kernel: WSL (271) ERROR: CheckConnection: connect() failed: 101
+>>> 2026-03-21T12:17:31.440330+00:00 DEVANSH snapd[209]: helpers.go:190: error trying to compare the snap system key: system-key missing on disk
+>>> 2026-03-21T12:17:32.494422+00:00 DEVANSH wsl-pro-service[213]: #033[33mWARNING#033[0m Could not ensure valid Landscape configuration: could not ensure valid Landscape configuration: could not register distro to Landscape: could not enable Landscape: /usr/bin/landscape-config: error: exit status 1.
+>>> 2026-03-21T12:17:56.083772+00:00 DEVANSH systemd[1]: apport-autoreport.path - Process error reports when automatic reporting is enabled (file watch) was skipped because of an unmet condition check (ConditionPathExists=/var/lib/apport/autoreport).
+>>> 2026-03-21T12:17:56.083778+00:00 DEVANSH systemd[1]: apport-autoreport.timer - Process error reports when automatic reporting is enabled (timer based) was skipped because of an unmet condition check (ConditionPathExists=/var/lib/apport/autoreport).
+
+========================================
+  Recent Warnings (Last 10)
+========================================
+>>> 2026-03-21T12:18:03.932705+00:00 DEVANSH wsl-pro-service[200]: #033[33mWARNING#033[0m Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/devan/.ubuntupro/.address": open /mnt/c/Users/devan/.ubuntupro/.address: no such file or directory
+>>> 2026-03-21T12:18:11.946025+00:00 DEVANSH wsl-pro-service[200]: #033[33mWARNING#033[0m Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/devan/.ubuntupro/.address": open /mnt/c/Users/devan/.ubuntupro/.address: no such file or directory
+>>> 2026-03-21T12:18:23.499614+00:00 DEVANSH python3[502]: ["2026-03-21T12:18:23.499", "WARNING", "ubuntupro.system", "get_kernel_info", 166, "failed to process /proc/version_signature.", {}]
+>>> 2026-03-21T12:18:23.502059+00:00 DEVANSH python3[502]: ["2026-03-21T12:18:23.501", "WARNING", "ubuntupro.system", "get_kernel_info", 175, "Failed to parse kernel: 6.6.87.2-microsoft-standard-WSL2", {}]
+>>> 2026-03-21T12:18:24.707024+00:00 DEVANSH python3[502]: ["2026-03-21T12:18:24.705", "WARNING", "ubuntupro.livepatch", "on_supported_kernel", 334, "unable to determine enough kernel information to check livepatch support", {}]
+>>> 2026-03-21T12:18:29.603659+00:00 DEVANSH wsl-pro-service[200]: #033[33mWARNING#033[0m Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/devan/.ubuntupro/.address": open /mnt/c/Users/devan/.ubuntupro/.address: no such file or directory
+>>> 2026-03-21T12:19:01.941890+00:00 DEVANSH wsl-pro-service[200]: #033[33mWARNING#033[0m Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/devan/.ubuntupro/.address": open /mnt/c/Users/devan/.ubuntupro/.address: no such file or directory
+>>> 2026-03-21T12:20:02.840645+00:00 DEVANSH wsl-pro-service[200]: #033[33mWARNING#033[0m Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/devan/.ubuntupro/.address": open /mnt/c/Users/devan/.ubuntupro/.address: no such file or directory
+>>> 2026-03-21T12:21:04.425251+00:00 DEVANSH wsl-pro-service[200]: #033[33mWARNING#033[0m Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/devan/.ubuntupro/.address": open /mnt/c/Users/devan/.ubuntupro/.address: no such file or directory
+>>> 2026-03-21T12:22:07.578547+00:00 DEVANSH wsl-pro-service[200]: #033[33mWARNING#033[0m Daemon: could not connect to Windows Agent: could not get address: could not read agent port file "/mnt/c/Users/devan/.ubuntupro/.address": open /mnt/c/Users/devan/.ubuntupro/.address: no such file or directory
+
+========================================
+  Systemd Journal (journalctl)
+========================================
+Boot error summary (this boot):
+
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Mar 21 12:17:55 DEVANSH unknown: WSL (271) ERROR: CheckConnection: connect() failed: 101
+Mar 21 12:17:55 DEVANSH kernel: virtiofs: Unknown parameter 'negative_dentry_timeout'
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Mar 21 12:17:55 DEVANSH kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Mar 21 12:17:57 DEVANSH login[318]: PAM unable to dlopen(pam_lastlog.so): /usr/lib/security/pam_lastlog.so: cannot open shared object file: No such file or directory
+Mar 21 12:17:57 DEVANSH login[318]: PAM adding faulty module: pam_lastlog.so
+
+Priority counts for current boot:
+Errors          : 38
+Warnings        : 71
+
+========================================
+  Authentication Log Analysis
+========================================
+Analyzing: /var/log/auth.log
+
+Successful Sessions       : 4
+Failed Authentications    : 0
+Sudo Commands             : 0
+
+========================================
+  Analysis Summary
+========================================
+Overall Log Health Assessment:
+
+Status: NEEDS ATTENTION
+Multiple critical errors or high error count detected.
+
+Totals across analyzed logs:
+Errors          : 9
+Warnings        : 23
+Info            : 26
+Critical        : 3
+
+========================================
+  Export Options
+========================================
+
+----------------------------------------------
+Analysis completed on: Sat Mar 21 12:23:08 UTC 2026
+----------------------------------------------
+

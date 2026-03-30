@@ -1,0 +1,130 @@
+[H[2J[3J
+*********************************************
+*     DISK AND PERMISSION AUDITOR          *
+*     Firefox OSS Audit Project            *
+*********************************************
+
+========================================
+  Disk Usage Analysis
+========================================
+Filesystem usage breakdown:
+
+Filesystem     Type     Size  Used Avail Use% Mounted on
+/dev/sdf       ext4    1007G  1.7G  954G   1% /
+rootfs         rootfs   3.8G  2.7M  3.8G   1% /init
+none           tmpfs    3.8G     0  3.8G   0% /dev/shm
+none           tmpfs    3.8G  580K  3.8G   1% /run
+none           tmpfs    3.8G     0  3.8G   0% /run/lock
+none           tmpfs    3.8G   72K  3.8G   1% /run/user
+drivers        9p       276G  193G   83G  70% /usr/lib/wsl/drivers
+none           overlay  3.8G     0  3.8G   0% /usr/lib/wsl/lib
+none           tmpfs    3.8G  4.0K  3.8G   1% /mnt/wsl
+none           overlay  3.8G   76K  3.8G   1% /mnt/wslg/versions.txt
+none           overlay  3.8G   76K  3.8G   1% /mnt/wslg/doc
+none           overlay  3.8G     0  3.8G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+C:\            9p       276G  193G   83G  70% /mnt/c
+D:\            9p       150G  102G   49G  68% /mnt/d
+K:\            9p        50G  7.5G   43G  15% /mnt/k
+tmpfs          tmpfs    776M   20K  776M   1% /run/user/0
+
+Checking for partitions with high usage (>80%):
+
+[OK] No partitions are above 80% usage
+
+========================================
+  Largest Directories
+========================================
+Top 10 largest directories in /home (if accessible):
+
+76K	/root
+56K	/root/firefox-oss-audit
+52K	/root/firefox-oss-audit/scripts
+12K	/root/firefox-oss-audit/scripts/manifesto_generator.sh
+12K	/root/firefox-oss-audit/scripts/log_analyzer.sh
+8.0K	/root/firefox-oss-audit/scripts/foss_inspector.sh
+8.0K	/root/firefox-oss-audit/scripts/disk_permission_auditor.sh
+4.0K	/root/firefox-oss-audit/scripts/system_identity.sh
+4.0K	/root/firefox-oss-audit/scripts/my_oss_manifesto.txt
+4.0K	/root/.ssh
+
+Top 10 largest directories in /var (may need sudo):
+
+572M	/var
+420M	/var/lib
+231M	/var/lib/apt/lists
+231M	/var/lib/apt
+162M	/var/lib/snapd
+136M	/var/cache
+123M	/var/lib/snapd/cache
+119M	/var/cache/apt
+74M	/var/lib/snapd/cache/e7bba49dc406968eb0a127e2c405c268c4abe875120f2c4930129800624bd937618069adbcc47cf3762aceddd1c4b977
+70M	/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble_universe_binary-amd64_Packages
+
+========================================
+  World-Writable Files Check
+========================================
+Searching for world-writable files in common directories...
+(This checks /tmp, /var/tmp, and current user's home)
+
+[OK] No world-writable files found in /tmp
+
+[OK] No world-writable files in home directory
+
+========================================
+  SUID/SGID Files Check
+========================================
+SUID (Set User ID) and SGID (Set Group ID) files can be
+security risks if misconfigured. Checking common locations...
+
+SUID files in /usr/bin:
+-rwsr-xr-x 1 root root 72792 May 30  2024 /usr/bin/chfn
+-rwsr-xr-x 1 root root 39296 Apr  8  2024 /usr/bin/fusermount3
+-rwsr-xr-x 1 root root 76248 May 30  2024 /usr/bin/gpasswd
+-rwsr-xr-x 1 root root 55680 Sep 16  2025 /usr/bin/su
+-rwsr-xr-x 1 root root 64152 May 30  2024 /usr/bin/passwd
+-rwsr-xr-x 1 root root 44760 May 30  2024 /usr/bin/chsh
+-rwsr-xr-x 1 root root 39296 Sep 16  2025 /usr/bin/umount
+-rwsr-xr-x 1 root root 277936 Jun 25  2025 /usr/bin/sudo
+-rwsr-xr-x 1 root root 40664 May 30  2024 /usr/bin/newgrp
+-rwsr-xr-x 1 root root 51584 Sep 16  2025 /usr/bin/mount
+
+SGID files in /usr/bin:
+-rwxr-sr-x 1 root shadow 72184 May 30  2024 /usr/bin/chage
+-rwxr-sr-x 1 root crontab 39664 Mar 31  2024 /usr/bin/crontab
+-rwxr-sr-x 1 root shadow 27152 May 30  2024 /usr/bin/expiry
+-rwxr-sr-x 1 root _ssh 309688 Aug 26  2025 /usr/bin/ssh-agent
+
+========================================
+  Critical File Permissions
+========================================
+Checking permissions of important system files:
+
+/etc/passwd               : 644 root:root
+/etc/shadow               : 640 root:shadow
+/etc/group                : 644 root:root
+/etc/sudoers              : 440 root:root
+/etc/ssh/sshd_config      : Not found
+
+[OK] /etc/passwd has correct permissions (644)
+[WARNING] Current user can read /etc/shadow (running as root?)
+
+========================================
+  Security Summary
+========================================
+Recommendations for maintaining secure file permissions:
+
+1. Avoid world-writable files (chmod o-w)
+2. Limit SUID/SGID files to only necessary binaries
+3. Keep /etc/shadow readable only by root (000 or 640)
+4. Regularly audit file permissions with scripts like this
+5. Use the principle of least privilege
+
+For Firefox specifically:
+- Firefox profile folder should be user-readable only
+- Check: ls -la ~/.mozilla/firefox/
+- Extensions and plugins should come from trusted sources
+
+----------------------------------------------
+Audit completed on: Sat Mar 21 12:23:08 UTC 2026
+----------------------------------------------
+

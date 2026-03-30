@@ -1,0 +1,68 @@
+[H[2J[3J
+*********************************************
+*        FOSS PACKAGE INSPECTOR             *
+*        Firefox OSS Audit Project          *
+*********************************************
+
+========================================
+  Detecting Package Manager
+========================================
+[+] Package Manager: apt (Debian/Ubuntu)
+
+========================================
+  Package Statistics
+========================================
+Total installed packages: 524
+
+========================================
+  Firefox Installation Check
+========================================
+[+] Firefox is INSTALLED on this system
+Version: 1:1snap1-0ubuntu5
+
+--- Firefox Information ---
+License: Mozilla Public License 2.0 (MPL-2.0)
+Developer: Mozilla Foundation
+Type: Web Browser
+First Release: November 2004
+Repository: https://hg.mozilla.org/mozilla-central
+
+========================================
+  Other FOSS Software Check
+========================================
+Checking for common FOSS packages...
+
+[+] vim - Installed
+[+] git - Installed
+[+] python3 - Installed
+[+] curl - Installed
+[+] wget - Installed
+[+] nano - Installed
+
+Found 6 out of 14 common FOSS packages
+
+========================================
+  FOSS Analysis
+========================================
+On a typical Linux system, majority of packages are FOSS.
+
+Common FOSS Licenses found in Linux packages:
+  - GPL (GNU General Public License)
+  - MIT License
+  - Apache License 2.0
+  - BSD License
+  - MPL (Mozilla Public License)
+  - LGPL (Lesser GPL)
+
+Estimated FOSS packages: ~95%
+(Linux distributions are built primarily on open source software)
+
+========================================
+  Export Package List
+========================================
+Skipping export.
+
+----------------------------------------------
+Inspection completed on: Sat Mar 21 12:22:52 UTC 2026
+----------------------------------------------
+

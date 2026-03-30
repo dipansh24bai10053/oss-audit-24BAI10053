@@ -1,0 +1,56 @@
+[H[2J[3J
+*********************************************
+*       SYSTEM IDENTITY REPORT              *
+*       Firefox OSS Audit Project           *
+*********************************************
+
+======================================
+  OPERATING SYSTEM INFO
+======================================
+OS Name             : Ubuntu 24.04.4 LTS
+Kernel Version      : 6.6.87.2-microsoft-standard-WSL2
+Architecture        : x86_64
+Shell               : /bin/bash
+Hostname            : Dipansh
+
+======================================
+  TIME AND UPTIME
+======================================
+Current Date        : 21-03-2026
+Current Time        : 12:22:38
+Timezone            : UTC
+System Uptime       : up 29 minutes
+
+======================================
+  USER INFORMATION
+======================================
+Current User        : root
+User ID             : 0
+Group ID            : 0
+Home Directory      : /root
+
+======================================
+  NETWORK INFORMATION
+======================================
+IP Address          : 172.23.247.179
+MAC Address         : 00:15:5d:f6:84:30
+DNS Server          : 10.255.255.254
+
+======================================
+  DISK USAGE SUMMARY
+======================================
+Root Partition   : 1.7G used of 1007G (1%)
+Total Disk Space    : 1.8T
+Used Space          : 497G
+
+======================================
+  MEMORY INFORMATION
+======================================
+Total Memory     : 7.6Gi
+Used Memory      : 847Mi
+Free Memory      : 6.3Gi
+
+----------------------------------------------
+Report generated on: Sat Mar 21 12:22:38 UTC 2026
+----------------------------------------------
+
